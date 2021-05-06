@@ -1,0 +1,21 @@
+# COCO 2017 dataset http://cocodataset.org - person training images
+# Train command: python train.py --data coco_person.yaml
+# Default dataset location is next to YOLOv5:
+#   /parent_folder
+#     /coco_person
+#     /yolov5
+
+
+# download command/URL (optional)
+#download: https://github.com/ultralytics/yolov5/releases/download/v1.0/coco128.zip
+
+# train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
+train: ../coco_person/train2017.txt
+val: ../coco_person/val2017.txt
+test: ../coco_person/test2017.txt
+
+# number of classes
+nc: 1
+
+# class names
+names: [ 'person' ]
