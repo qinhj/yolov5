@@ -175,6 +175,7 @@ def train(hyp,  # path/to/hyp.yaml or hyp dictionary
 
     # EMA
     ema = ModelEMA(model) if RANK in [-1, 0] else None
+    logger.info('Create ModelEMA fin')
 
     # Resume
     start_epoch, best_fitness = 0, 0.0
@@ -417,6 +418,7 @@ def train(hyp,  # path/to/hyp.yaml or hyp dictionary
             # Update best mAP
             fi = fitness(np.array(results).reshape(1, -1))  # weighted combination of [P, R, mAP@.5, mAP@.5-.95]
             if fi > best_fitness:
+                logger.info("epoch[%d]: update best fitness from %10.4g to %10.4g" % (epoch, best_fitness, fi))
                 best_fitness = fi
             wandb_logger.end_epoch(best_result=best_fitness == fi)
 
