@@ -7,6 +7,8 @@ see Yolov3.md, section "Quick Env".
 ```
 * YOLOv5-P5 models (same architecture as v4.0 release): 3 output layers P3, P4, P5 at strides 8, 16, 32, trained at --img 640
 * YOLOv5-P6 models: 4 output layers P3, P4, P5, P6 at strides 8, 16, 32, 64 trained at --img 1280
+* The focus struct is actually a special conv3/s2 layer(WxHx3 => W/2xH/2x12), which has fixed kernel weights,
+e.g. k1(5) = 1, k2(6) = 1, ...
 ```
 
 ## Quick Start ##
